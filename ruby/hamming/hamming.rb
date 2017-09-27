@@ -4,7 +4,7 @@ class Hamming
     if strand_1.length != strand_2.length
       raise ArgumentError
     else
-      strand_1.chars.zip(strand_2.chars).count {|f, s| f != s}
+     strand_1.chars.zip(strand_2.chars).count {|f, s| f != s}
     end
   end
 
