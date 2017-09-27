@@ -3,20 +3,18 @@ class PigLatin
     final_string = ""
     last_word = string.split.last
     string.split.each do |word|
-      if last_word == word
-        final_string << process(word)
-      else
-        final_string << process(word) + " "
-      end
+      final_space = last_word == word ? "" : " "
+      final_string << process(word) + final_space
     end
     final_string
   end
 
   def self.process(word)
-    vowels = ["a", "e", "i", "o", "u"]
     combined_sounds = ["ch", "sh", "qu", "squ", "thr", "th", "sch"]
+    first_letter = word.chars.first
+    first_letter_x_or_y = first_letter == "y" || first_letter == "x"
 
-    if ((word[0] == "y" || word[0] == "x") && !vowels.include?(word[1])) || vowels.include?(word[0])
+    if (first_letter_x_or_y && !is_vowel?(word[1]) || is_vowel?(word[0]))
       return word + "ay"
     end
 
@@ -26,8 +24,11 @@ class PigLatin
       end
     end
 
-    first_letter = word.chars.first
     word[1..word.length - 1] + first_letter + "ay"
+  end
+
+  def self.is_vowel?(letter)
+    ["a", "e", "i", "o", "u"].include? letter
   end
 end
 
