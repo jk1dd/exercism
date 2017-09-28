@@ -3,10 +3,9 @@ class PigLatin
     final_string = ""
     last_word = string.split.last
     string.split.each do |word|
-      final_space = last_word == word ? "" : " "
-      final_string << process(word) + final_space
+      final_string << process(word) + " "
     end
-    final_string
+    final_string.strip
   end
 
   def self.process(word)
@@ -20,7 +19,7 @@ class PigLatin
 
     combined_sounds.each do |sound|
       if word[0..sound.length - 1] == sound[0..sound.length - 1]
-        return word[(sound.length)..(word.length - 1)] + sound + "ay"
+        return word[(sound.length)..-1] + sound + "ay"
       end
     end
 
