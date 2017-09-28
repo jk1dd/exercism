@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'sieve'
 
 # Common test data version: 1.0.0 f2b2693
@@ -10,7 +11,7 @@ class SieveTest < Minitest::Test
   end
 
   def test_find_first_prime
-    skip
+    # skip
     expected = [2]
     assert_equal expected, Sieve.new(2).primes
   end
