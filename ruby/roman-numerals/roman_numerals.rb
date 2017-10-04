@@ -1,5 +1,6 @@
 # create map of numerals
 # convert and subtract
+# from largest place to smallest (thousands to ones)
 
 class Fixnum
   # I, V, X, L, C, D, M.
